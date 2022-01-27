@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true, //@ts-check
+        "noImplicitAny": true //모든 타입에는 최소 any라는 타입을 넣어야한다.
+    }
+}
+
+
+//ts-config 설정하는부분
+// 타입 스크립트 공식 문서에서 tools 메뉴에 들어있다.
