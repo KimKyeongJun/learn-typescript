@@ -52,3 +52,62 @@ function logText<T>(text: T):T {
 // 동일한 함수에 대해서 타입이 변경되어도 재사용 할 수 있다.
 const abc = logText<string>('a');
 const num = logText<number>(10);
+
+//인터페이스에 제네릭을 선언하는 방법
+interface Dropdown {
+    value: string;
+    selected: boolean;
+}
+
+const obj: Dropdown = {
+    value: 'abc', selected: false
+};
+
+interface DropdownGeneric<T> {
+    value: T;
+    selected: boolean;
+}
+
+const objGeneric: DropdownGeneric<string> = {
+    value: 'abc', selected: false
+}
+
+// 타입 제한1 - 제너릭의 타입 제한
+function logTextLength<T>(text: T[]):T[] {
+    console.log(text.length);
+    return text;
+}
+
+// 타입 제한2 - 정의된 타입으로 타입을 제한하기
+interface LengthType {
+    length: number;
+}
+
+function logTextLEngth<T extends LengthType>(text: T):T {
+    text.length
+    return text;
+}
+
+// logTextLength(10)
+// logTextLength({leng: 10})
+
+
+// 제너릭 타입 제한 3 - keyof
+interface ShoppingItem {
+    name: string;
+    price: number;
+    stock: number;
+}
+
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T):T {
+    return itemOption;
+}
+
+// getShoppingItemOption(10);
+// getShoppingItemOption<string>('a');
+
+// name
+// price
+// stock
+getShoppingItemOption('name');
+

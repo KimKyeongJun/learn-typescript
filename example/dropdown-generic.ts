@@ -1,3 +1,9 @@
+interface DropdownItem<T> {
+  value: T;
+  selected: boolean;
+}
+
+
 interface Email {
   value: string;
   selected: boolean;
@@ -5,6 +11,11 @@ interface Email {
 
 
 const emails: Email[] = [
+  { value: 'naver.com', selected: true },
+  { value: 'gmail.com', selected: false },
+  { value: 'hanmail.net', selected: false },
+];
+const emailsGeneric: DropdownItem<string>[] = [
   { value: 'naver.com', selected: true },
   { value: 'gmail.com', selected: false },
   { value: 'hanmail.net', selected: false },
@@ -21,7 +32,21 @@ const numberOfProducts: ProductNumber[] = [
   { value: 3, selected: false },
 ];
 
+const numberOfProductsGeneric: DropdownItem<number>[] = [
+  { value: 1, selected: true },
+  { value: 2, selected: false },
+  { value: 3, selected: false },
+];
+
 function createDropdownItem(item: Email | ProductNumber) {
+  const option = document.createElement('option');
+  option.value = item.value.toString();
+  option.innerText = item.value.toString();
+  option.selected = item.selected;
+  return option;
+}
+
+function createDropdownItemGeneric(item: DropdownItem<string> | DropdownItem<number>) {
   const option = document.createElement('option');
   option.value = item.value.toString();
   option.innerText = item.value.toString();
