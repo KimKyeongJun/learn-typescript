@@ -1,20 +1,4 @@
-interface PhoneNumberDictionary {
-  [phone: string]: {
-    num: number;
-  };
-}
-
-interface Contact {
-  name: string;
-  address: string;
-  phones: PhoneNumberDictionary;
-}
-
-enum PhoneType {
-  Home = 'home',
-  Office = 'Office',
-  Studio = 'studio'
-}
+import { Contact, PhoneType } from './types';
 
 // api
 // API를 호출했을때 API의 규격을 정할 때 제너릭을 제일 많이 사용함.
