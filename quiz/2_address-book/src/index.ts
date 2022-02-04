@@ -11,10 +11,10 @@ interface Contact {
 }
 
 // api
-// TODO: 아래 함수의 반환 타입을 지정해보세요.
-function fetchContacts() {
+// API를 호출했을때 API의 규격을 정할 때 제너릭을 제일 많이 사용함.
+function fetchContacts(): Promise<Contact[]> {
   // TODO: 아래 변수의 타입을 지정해보세요.
-  const contacts = [
+  const contacts: Contact[] = [
     {
       name: 'Tony',
       address: 'Malibu',
